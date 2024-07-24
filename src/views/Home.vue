@@ -13,9 +13,6 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
-  },
-  created() {
-    print('hello')
   }
 }
 </script>
