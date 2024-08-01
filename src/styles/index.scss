@@ -1,3 +1,9 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './sidebar.scss';
+@import './element.scss';
+@import './transition.scss';
+
 html,
 body {
   height: 100%;
@@ -48,4 +54,13 @@ div:focus {
     clear: both;
     height: 0;
   }
+}
+
+#driver-highlighted-element-stage {
+  background: transparent !important;
+  outline: 5000px solid rgba(0, 0, 0, 0.75);
+}
+
+#driver-page-overlay {
+  background: none !important;
 }

@@ -1,0 +1,14 @@
+.breadbrumb-enter-active,
+.breadbrumb-leave-active {
+  transition: all 0.5s;
+}
+
+.breadbrumb-enter-from,
+.breadbrumb-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.breadbrumb-leave-active {
+  position: absolute;
+}
