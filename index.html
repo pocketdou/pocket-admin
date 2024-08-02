@@ -1,0 +1,17 @@
+<script>
+  const messages = {
+    en: {
+      msg: 'hello world'
+    },
+    zh: {
+      msg: '你好世界'
+    }
+  }
+  let local = 'en'
+
+  function t(key) {
+    return messages[local][key]
+  }
+  let msg = t('msg')
+  console.log(msg)
+</script>

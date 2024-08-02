@@ -1,9 +1,12 @@
 <template>
-  <div class="">个人中心</div>
+  <div class=""></div>
+  <el-pagination
+    :page-size="100"
+    layout="total, prev, pager, next"
+    :total="1000"
+  />
 </template>
 
-<script setup>
-import {} from 'vue'
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>
