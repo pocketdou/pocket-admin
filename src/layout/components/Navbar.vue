@@ -4,6 +4,8 @@
     <hamburger class="hamburger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="righ-menu">
+      <!-- 全屏 -->
+      <screen-full class="right-menu-item hover-effect"></screen-full>
       <!-- 换肤 -->
       <theme-select class="right-menu-item hover-effect"></theme-select>
       <!-- 国际化 -->
@@ -42,6 +44,7 @@ import { useStore } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import LangSelect from '@/components/LangSelect'
+import ScreenFull from '@/components/ScreenFull'
 import ThemeSelect from '@/components/ThemeSelect'
 
 const store = useStore()
