@@ -11,3 +11,7 @@ export const LANG = 'language'
 // 语言
 export const EN_US = 'en-us'
 export const ZH_CN = 'zh-cn'
+
+// 主题色
+export const MAIN_COLOR = 'mainColor'
+export const DEFAULT_COLOR = '#409EFF'
