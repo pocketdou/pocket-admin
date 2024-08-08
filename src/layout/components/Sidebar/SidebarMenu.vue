@@ -39,7 +39,6 @@ const activeMenu = computed(() => {
 })
 
 const cssVar = computed(() => {
-  console.log(store.getters.cssVar)
   return store.getters.cssVar
 })
 </script>
