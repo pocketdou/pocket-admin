@@ -14,15 +14,19 @@
       <!-- navbar -->
       <div class="fix-header">
         <navbar></navbar>
+        <!-- tags -->
+        <tags-view></tags-view>
       </div>
 
       <!-- 内容区 -->
-      <app-main></app-main>
+      <app-main> </app-main>
     </div>
   </div>
 </template>
 
 <script setup>
+import TagsView from '@/components/TagsView'
+
 import AppMain from './components/AppMain.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar'

@@ -15,3 +15,6 @@ export const ZH_CN = 'zh-cn'
 // 主题色
 export const MAIN_COLOR = 'mainColor'
 export const DEFAULT_COLOR = '#409EFF'
+
+// tags
+export const TAGS_VIEW = 'tagsView'
