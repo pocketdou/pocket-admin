@@ -2,8 +2,10 @@
   <div class="navbar">
     <!-- 汉堡 -->
     <hamburger class="hamburger-container" />
-    <breadcrumb class="breadcrumb-container" />
+    <breadcrumb id="guide-breadcrumb" class="breadcrumb-container" />
     <div class="righ-menu">
+      <!-- Guide -->
+      <guide class="right-menu-item hover-effect" />
       <!-- 搜索 -->
       <header-search class="right-menu-item hover-effect"></header-search>
       <!-- 全屏 -->
@@ -44,6 +46,7 @@
 import { useStore } from 'vuex'
 
 import Breadcrumb from '@/components/Breadcrumb'
+import Guide from '@/components/Guide'
 import Hamburger from '@/components/Hamburger'
 import HeaderSearch from '@/components/HeaderSearch'
 import LangSelect from '@/components/LangSelect'

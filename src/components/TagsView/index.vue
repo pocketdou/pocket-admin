@@ -14,6 +14,7 @@
     >
       {{ tag.title }}
       <svg-icon
+        id="guide-tags"
         class="close-icon"
         v-show="!isActive(tag)"
         icon="close"
