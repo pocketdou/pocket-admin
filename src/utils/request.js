@@ -24,6 +24,7 @@ service.interceptors.request.use(
     }
 
     config.headers.icode = configs.ICODE
+    config.headers['Accept-Language'] = store.getters.language
     return config
   },
   (error) => {

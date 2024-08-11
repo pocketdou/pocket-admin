@@ -13,6 +13,11 @@ module.exports = {
         // 要代理的服务器地址  这里不用写 api
         target: 'https://api.imooc-admin.lgdsunday.club/',
         changeOrigin: true // 是否跨域
+      },
+      '/images': {
+        target: 'https://img1.sycdn.imooc.com',
+        changeOrigin: true
+        // 对于图片等文件，可能不需要pathRewrite
       }
     }
   },
