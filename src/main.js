@@ -7,6 +7,8 @@ import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import installElementPlus from '@/plugins/element'
+import installFilter from '@/filter'
 import installIcons from '@/icons'
 
 import App from './App.vue'
@@ -21,5 +23,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 
 installIcons(app)
+installElementPlus(app)
+installFilter(app)
 
 app.use(store).use(router).use(ElementPlus).use(i18n).mount('#app')

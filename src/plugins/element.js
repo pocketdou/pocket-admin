@@ -1,5 +1,3 @@
-import 'element-plus/lib/theme-chalk/index.css'
-
 import ElementPlus from 'element-plus'
 import en from 'element-plus/lib/locale/lang/en'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
