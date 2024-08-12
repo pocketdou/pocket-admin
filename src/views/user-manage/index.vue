@@ -80,18 +80,22 @@
 <script setup>
 import { onActivated, ref } from 'vue'
 
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
-import { getUserManageList } from '@/api/user-manage'
+import { deleteUser, getUserManageList } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 
 const router = useRouter()
+const i18n = useI18n()
 
 const tableData = ref([])
 const total = ref(0)
 const page = ref(1)
 const size = ref(5)
 
+// 获取用户列表
 const getListData = async () => {
   const result = await getUserManageList({
     page: page.value,
@@ -108,6 +112,22 @@ onActivated(getListData)
 
 const onImportExcelClick = () => {
   router.push('/user/import')
+}
+
+// 删除用户
+const onRemoveClick = async (row) => {
+  ElMessageBox.confirm(
+    i18n.t('msg.excel.dialogTitle1') +
+      row.username +
+      i18n.t('msg.excel.dialogTitle2'),
+    {
+      type: 'warning'
+    }
+  ).then(async () => {
+    await deleteUser(row._id)
+    ElMessage.success(i18n.t('msg.excel.removeSuccess'))
+    getListData()
+  })
 }
 
 const handleSizeChange = (currentSize) => {
