@@ -5,7 +5,9 @@
         <el-button type="primary" @click="onImportExcelClick">
           {{ $t('msg.excel.importExcel') }}
         </el-button>
-        <el-button type="success">{{ $t('msg.excel.exportExcel') }}</el-button>
+        <el-button type="success" @click="onToExcelClick">
+          {{ $t('msg.excel.exportExcel') }}
+        </el-button>
       </div>
       <template #footer> </template>
     </el-card>
@@ -74,6 +76,8 @@
       >
       </el-pagination>
     </el-card>
+
+    <export-to-excel v-model="exportToExcelVisible"></export-to-excel>
   </div>
 </template>
 
@@ -87,6 +91,8 @@ import { useRouter } from 'vue-router'
 import { deleteUser, getUserManageList } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 
+import ExportToExcel from './components/Export2Excel.vue'
+
 const router = useRouter()
 const i18n = useI18n()
 
@@ -94,6 +100,8 @@ const tableData = ref([])
 const total = ref(0)
 const page = ref(1)
 const size = ref(5)
+
+const exportToExcelVisible = ref(false)
 
 // 获取用户列表
 const getListData = async () => {
@@ -110,8 +118,14 @@ getListData()
 watchSwitchLang(getListData)
 onActivated(getListData)
 
+// 导入excel
 const onImportExcelClick = () => {
   router.push('/user/import')
+}
+
+// 导出excel
+const onToExcelClick = () => {
+  exportToExcelVisible.value = true
 }
 
 // 删除用户
