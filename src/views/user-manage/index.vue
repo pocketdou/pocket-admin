@@ -144,6 +144,17 @@ const onRemoveClick = async (row) => {
   })
 }
 
+// 查看用户详情
+const onShowClick = (id) => {
+  router.push(`/user/info/${id}`)
+}
+
+// 查看用户角色
+const onShowRoleClick = (row) => {
+  router.push(`/user/role/${row._id}`)
+}
+
+/* 分页设置 */
 const handleSizeChange = (currentSize) => {
   size.value = currentSize
   getListData()
