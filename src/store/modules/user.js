@@ -2,14 +2,15 @@ import md5 from 'md5'
 
 import { getItem, removeAllItem, setItem } from '@/utils/storage'
 import { getUserInfo, login } from '@/api/sys'
-import router from '@/router'
+import router, { resetRouter } from '@/router'
 import { setTimeStamp } from '@/utils/auth'
 import { TOKEN } from '@/constant'
 
 export default {
   namespaced: true,
   state: () => ({
-    token: getItem(TOKEN) || ''
+    token: getItem(TOKEN) || '',
+    userInfo: {}
   }),
   mutations: {
     setToken(state, token) {
@@ -51,6 +52,7 @@ export default {
 
     // 退出登录
     logout() {
+      resetRouter()
       this.commit('user/setToken', '')
       this.commit('user/setUserInfo', {})
       removeAllItem()

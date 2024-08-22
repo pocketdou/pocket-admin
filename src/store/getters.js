@@ -7,8 +7,7 @@ const getters = {
   // 用户信息是否存在
   hasUserInfo: (state) => {
     // true 存在，false 不存在
-    const { userInfo } = state.user
-    return JSON.stringify(userInfo) === '{}'
+    return JSON.stringify(state.user.userInfo) !== '{}'
   },
   userInfo: (state) => state.user.userInfo,
   cssVar: (state) => ({

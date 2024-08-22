@@ -2,7 +2,11 @@
   <div class="user-manage-container">
     <el-card class="header">
       <div>
-        <el-button type="primary" @click="onImportExcelClick">
+        <el-button
+          type="primary"
+          @click="onImportExcelClick"
+          v-permission="['importUser']"
+        >
           {{ $t('msg.excel.importExcel') }}
         </el-button>
         <el-button type="success" @click="onToExcelClick">
@@ -54,10 +58,20 @@
             >
               {{ $t('msg.excel.show') }}
             </el-button>
-            <el-button type="info" size="small" @click="onShowRoleClick(row)">
+            <el-button
+              type="info"
+              size="small"
+              @click="onShowRoleClick(row)"
+              v-permission="['distributeRole']"
+            >
               {{ $t('msg.excel.showRole') }}
             </el-button>
-            <el-button type="danger" size="small" @click="onRemoveClick(row)">
+            <el-button
+              type="danger"
+              size="small"
+              @click="onRemoveClick(row)"
+              v-permission="['removeUser']"
+            >
               {{ $t('msg.excel.remove') }}
             </el-button>
           </template>
@@ -78,11 +92,16 @@
     </el-card>
 
     <export-to-excel v-model="exportToExcelVisible"></export-to-excel>
+    <role-dialog
+      v-model="roleDialogVisible"
+      :userId="selectUserId"
+      @updateRole="getListData"
+    ></role-dialog>
   </div>
 </template>
 
 <script setup>
-import { onActivated, ref } from 'vue'
+import { onActivated, ref, watch } from 'vue'
 
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useI18n } from 'vue-i18n'
@@ -92,6 +111,7 @@ import { deleteUser, getUserManageList } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 
 import ExportToExcel from './components/Export2Excel.vue'
+import RoleDialog from './components/RoleDialog.vue'
 
 const router = useRouter()
 const i18n = useI18n()
@@ -102,6 +122,8 @@ const page = ref(1)
 const size = ref(5)
 
 const exportToExcelVisible = ref(false)
+const roleDialogVisible = ref(false)
+const selectUserId = ref('')
 
 // 获取用户列表
 const getListData = async () => {
@@ -151,8 +173,12 @@ const onShowClick = (id) => {
 
 // 查看用户角色
 const onShowRoleClick = (row) => {
-  router.push(`/user/role/${row._id}`)
+  roleDialogVisible.value = true
+  selectUserId.value = row._id
 }
+watch(roleDialogVisible, (val) => {
+  if (!val) selectUserId.value = ''
+})
 
 /* 分页设置 */
 const handleSizeChange = (currentSize) => {
