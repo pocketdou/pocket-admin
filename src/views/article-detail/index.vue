@@ -12,7 +12,7 @@
         {{ $t('msg.article.publicDate') }} :
         {{ $filters.relativeTime(detail.publicDate) }}
       </span>
-      <el-button class="edit" type="link" @click="onEditClick">
+      <el-button class="edit" @click="onEditClick">
         {{ $t('msg.article.edit') }}
       </el-button>
     </div>
