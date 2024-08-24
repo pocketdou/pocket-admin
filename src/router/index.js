@@ -41,15 +41,15 @@ export const publicRoutes = [
       },
       // 404
       {
-        path: '/404',
+        path: '/:catchAll(.*)',
         name: '404',
         component: () => import('@/views/error-page/404.vue')
       },
       // 401
       {
-        path: '/404',
-        name: '404',
-        component: () => import('@/views/error-page/404.vue')
+        path: '/401',
+        name: '401',
+        component: () => import('@/views/error-page/401.vue')
       }
     ]
   }
