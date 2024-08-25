@@ -23,14 +23,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onActivated, ref } from 'vue'
 
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 import { articleDetail } from '@/api/article'
 import { watchSwitchLang } from '@/utils/i18n'
 
 const route = useRoute()
+const router = useRouter()
 
 const articleId = route.params.id
 
@@ -41,11 +42,13 @@ const getArticleDetail = async () => {
 
 getArticleDetail()
 watchSwitchLang(getArticleDetail)
+onActivated(getArticleDetail)
 
 const onEditClick = () => {
-  console.log('edit')
+  router.push(`/article/editor/${articleId}`)
 }
 </script>
+
 <style lang="scss" scoped>
 .article-detail-container {
   .title {
