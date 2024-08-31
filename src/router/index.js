@@ -39,6 +39,16 @@ export const publicRoutes = [
           icon: 'personnel'
         }
       },
+      {
+        path: '/chart',
+        name: 'chart',
+        component: () =>
+          import(/* webpackChunkName: "chart" */ '@/views/chart/index'),
+        meta: {
+          title: 'chart',
+          icon: 'chart'
+        }
+      },
       // 404
       {
         path: '/:catchAll(.*)',
