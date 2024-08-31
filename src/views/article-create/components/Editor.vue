@@ -66,6 +66,15 @@ watch(
   }
 )
 
+watch(
+  () => store.getters.language,
+  (val) => {
+    editor.destroy()
+
+    initEditor()
+  }
+)
+
 const onSubmitClick = async () => {
   if (props.detail && props.detail._id) {
     // 编辑文章

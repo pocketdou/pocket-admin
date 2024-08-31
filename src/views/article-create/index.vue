@@ -50,7 +50,11 @@ const detail = ref({})
 
 const onSuccess = () => {
   title.value = ''
-  router.push(`/article/${articleId}`)
+  if (articleId) {
+    router.push(`/article/${articleId}`)
+  } else {
+    router.push('/article/ranking')
+  }
 }
 
 const getArticleDetail = async () => {

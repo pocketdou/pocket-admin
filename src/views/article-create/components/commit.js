@@ -13,6 +13,6 @@ export const commitArticle = async (data) => {
 
 export const editArticle = async (data) => {
   const res = await editorArticle(data)
-  ElMessage.success(t('msg.article.editSuccess'))
+  ElMessage.success(t('msg.article.editorSuccess'))
   return res
 }
